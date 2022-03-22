@@ -12,6 +12,8 @@
 #alterarQuantidadeCombustivel( ) – altera a quantidade de combustível restante na bomba.
 #OBS: Sempre que acontecer um abastecimento é necessário atualizar a quantidade de combustível total na bomba.
 
+
+
 class bombaCombustível ():
     def __init__(self, tipoCombustivel, valorLitro, quantidadeCombustível):
         self.tipoCombustivel = tipoCombustivel
@@ -21,3 +23,22 @@ class bombaCombustível ():
     def abastecerPorValor(self):
         valCliente = float(input('Quantos R$ você quer abastecer? '))
         print('A quantia de R$: ',valCliente, ' dá para colocar: ', valCliente/self.valorLitro, ' litros de: ', self.tipoCombustivel,'.')
+
+    def abastecerPorLitro(self):
+        litrosCliente = float(input('Quantos litros você quer abastercer? '))
+        print(litrosCliente, ' litros custam: R$', litrosCliente*self.valorLitro,' para o combustível ',self.tipoCombustivel,'.')
+    
+    def alterarValor(self):
+        novoValor = float(input('Qual o novo valor para o combustível ' + self.tipoCombustivel +'? '))
+        self.valorLitro = novoValor
+        print('O valor do combustível ', self.tipoCombustivel, ' foi alterado com sucesso para R$ ', self.valorLitro, '.')
+
+    def alterarTipo (self):
+        novoTipo = input('Qual o novo tipo de combustível que estará nessa bomba? ')
+        self.tipoCombustivel = novoTipo
+        print('O combustível dessa bomba agora é o(a) ', self.tipoCombustivel,'.')
+    
+    def alterarQuantidadeCombustível (self):
+        novaQtd = float(input('Qual a nova quantidade na bomba? '))
+        self.quantidadeCombustível = novaQtd
+        print('A bomba de ', self.tipoCombustivel, ' possui ', self.quantidadeCombustível, ' litros.')
